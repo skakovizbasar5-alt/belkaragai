@@ -1,5 +1,6 @@
 import Hero from '../components/home/Hero';
 import AboutSection from '../components/home/AboutSection';
+import ViewsSection from '../components/home/ViewsSection';
 import MapSection from '../components/home/MapSection';
 import RoutesSection from '../components/home/RoutesSection';
 import HistorySection from '../components/home/HistorySection';
@@ -13,6 +14,7 @@ export default function HomePage() {
     <>
       <Hero />
       <AboutSection />
+      <ViewsSection />
       <MapSection />
       <RoutesSection />
       <HistorySection />

@@ -2,6 +2,7 @@ import { Landmark, Leaf, Recycle } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
 import { useReveal } from '../../lib/useReveal';
 import ImageSlot from '../ui/ImageSlot';
+import { AUTHOR } from '../../data/site';
 
 const PILLARS = [
   {
@@ -42,12 +43,21 @@ export default function AboutSection() {
               Жобаның басты қағидасы — <b className="text-forest-900">шынайылық</b>: сайттағы әр дерек дереккөзімен беріледі, ал
               расталмаған мәлімет «Нақтылануда» деп ашық белгіленеді.
             </p>
+            <dl className="mt-7 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-forest-900/10 bg-white px-5 py-4">
+                <dt className="text-xs font-bold tracking-wider text-brown-600 uppercase">Орындаған оқушы</dt>
+                <dd className="mt-1 font-semibold text-forest-900">{AUTHOR.student}</dd>
+              </div>
+              <div className="rounded-2xl border border-forest-900/10 bg-white px-5 py-4">
+                <dt className="text-xs font-bold tracking-wider text-brown-600 uppercase">Жетекшісі</dt>
+                <dd className="mt-1 font-semibold text-forest-900">{AUTHOR.supervisor}</dd>
+              </div>
+            </dl>
           </div>
           <div ref={imgRef} className="reveal relative">
             <ImageSlot
-              src="/images/about.jpg"
-              alt="Тау бөктеріндегі ауыл көрінісі"
-              caption="Иллюстрация"
+              src="/images/views/aerial.jpg"
+              alt="Белқарағай ауылы құс ұшар биіктіктен"
               className="aspect-[4/3] rounded-[2rem] shadow-2xl shadow-forest-900/20"
             />
             <div className="absolute -bottom-6 -left-4 hidden rounded-2xl bg-forest-800 px-6 py-5 text-white shadow-xl sm:block">

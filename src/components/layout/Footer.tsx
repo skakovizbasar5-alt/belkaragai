@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import Logo from './Logo';
 import { NAV_ITEMS } from './Navbar';
-import { SITE } from '../../data/site';
+import { AUTHOR, SITE } from '../../data/site';
 
 export default function Footer() {
   return (
@@ -12,6 +12,11 @@ export default function Footer() {
           <p className="mt-4 max-w-sm font-display text-lg text-gold-200 italic">«{SITE.slogan}»</p>
           <p className="mt-3 max-w-sm text-sm">
             Белқарағай ауылының табиғи және тарихи әлеуетін таныстыратын мектеп оқушысының ғылыми жобасы.
+          </p>
+          <p className="mt-3 text-sm">
+            Орындаған оқушы: <span className="text-white">{AUTHOR.student}</span>
+            <br />
+            Жетекшісі: <span className="text-white">{AUTHOR.supervisor}</span>
           </p>
         </div>
         <div>
@@ -37,6 +42,11 @@ export default function Footer() {
             <li>
               <Link to="/admin" className="hover:text-white">
                 Демо-басқару беті
+              </Link>
+            </li>
+            <li>
+              <Link to="/#views" className="hover:text-white">
+                Ауыл көрінісі
               </Link>
             </li>
             <li>

@@ -132,8 +132,8 @@ export default function TourMap({
           <Marker
             key={p.id}
             position={[p.latitude, p.longitude]}
-            icon={markerIcon(p.category, { active: p.id === selectedId, verified: p.verified })}
-            title={p.verified ? p.name : `${p.name} (тексерілмеген)`}
+            icon={markerIcon(p.category, { active: p.id === selectedId })}
+            title={p.name}
             eventHandlers={{ click: () => onSelect?.(p.id) }}
             ref={(m) => {
               if (m) markers.current.set(p.id, m);

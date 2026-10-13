@@ -18,18 +18,22 @@ export default function PlacePopup({ place }: { place: Place }) {
         </div>
         <h3 className="font-display text-lg leading-snug font-semibold text-forest-900">{place.name}</h3>
         <p className="!my-0 text-[0.8rem] leading-relaxed text-forest-900/75">{place.description}</p>
-        <p className="!my-0 text-[0.78rem] leading-relaxed">
-          <span className="font-bold text-brown-700">Маңызы: </span>
-          {place.historicalSignificance}
-        </p>
-        {coords && (
-          <p className="!my-0 flex items-center gap-1 text-[0.75rem] text-forest-900/60">
-            <MapPin className="h-3.5 w-3.5" /> {coords} {!place.verified && '(тексерілмеген)'}
+        {place.historicalSignificance && (
+          <p className="!my-0 text-[0.78rem] leading-relaxed">
+            <span className="font-bold text-brown-700">Маңызы: </span>
+            {place.historicalSignificance}
           </p>
         )}
-        <p className="!my-0 flex items-start gap-1 text-[0.75rem] text-forest-900/60">
-          <BookOpen className="mt-0.5 h-3.5 w-3.5 shrink-0" /> {place.source ?? 'Дереккөз нақтылануда'}
-        </p>
+        {coords && (
+          <p className="!my-0 flex items-center gap-1 text-[0.75rem] text-forest-900/60">
+            <MapPin className="h-3.5 w-3.5" /> {coords}
+          </p>
+        )}
+        {place.source && (
+          <p className="!my-0 flex items-start gap-1 text-[0.75rem] text-forest-900/60">
+            <BookOpen className="mt-0.5 h-3.5 w-3.5 shrink-0" /> {place.source}
+          </p>
+        )}
         <Link
           to={`/place/${place.id}`}
           className="!mt-3 inline-flex items-center gap-1 rounded-full bg-forest-800 px-3.5 py-2 text-xs font-bold !text-white hover:bg-forest-700"

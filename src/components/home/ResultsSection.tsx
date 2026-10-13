@@ -12,9 +12,9 @@ export default function ResultsSection() {
   const ref = useReveal<HTMLDivElement>();
 
   const stats = [
-    { icon: MapPinned, label: 'Туристік нысан', value: places.length, note: 'places.ts + демо-қосылғандар' },
-    { icon: MapPinCheck, label: 'Тексерілген нүкте', value: places.filter((p) => p.verified && hasCoords(p)).length, note: 'координаты расталған' },
-    { icon: Route, label: 'Маршрут', value: routes.length, note: 'routes.ts' },
+    { icon: MapPinned, label: 'Туристік нысан', value: places.length, note: 'сайтта' },
+    { icon: MapPinCheck, label: 'Картадағы нүкте', value: places.filter(hasCoords).length, note: 'координаты бар' },
+    { icon: Route, label: 'Маршрут', value: routes.length, note: 'сайтта' },
     { icon: BookOpenCheck, label: 'Тарихи материал', value: history.filter((h) => h.text.trim() && h.source).length, note: 'дереккөзімен' },
     { icon: Megaphone, label: 'Экологиялық хабарлама', value: reports.length, note: 'осы құрылғыда' },
   ];

@@ -7,6 +7,7 @@ import { BOOK_SOURCE } from './history';
  * Ережелер:
  *  1. Нысанның атауын, тарихын және координатын ойдан жазбаңыз.
  *  2. Координат расталмаса: latitude: null, longitude: null.
+ *     historicalSignificance бос ('') болса — сайтта көрсетілмейді.
  *  3. Координат пен дерек жергілікті жерде тексерілгенде ғана verified: true қойыңыз.
  *     verified: false нысан картада сұр, үзік жиекті «Тексерілмеген» белгі болып шығады.
  *  4. Әр нысанға source (дереккөз) жазыңыз.
@@ -37,64 +38,26 @@ export const places: Place[] = [
     name: 'Оралхан Бөкей атындағы Белқарағай орта мектебі',
     category: 'history',
     description:
-      'Ауылдың мәдени-білім беру нысаны. Мектеп жазушы Оралхан Бөкейдің есімімен аталған. Ашық деректерде мекенжайы: Бейбітшілік көшесі, 43.',
-    historicalSignificance: PENDING,
+      'Ауылдың мәдени-білім беру нысаны. Мектеп жазушы Оралхан Бөкейдің есімімен аталған. Мекенжайы: Бейбітшілік көшесі, 43.',
+    historicalSignificance: '',
     latitude: null,
     longitude: null,
     image: '/images/places/school.jpg',
     imageCredit: 'Фото',
-    source: 'Ашық деректер (мекенжай). Координаты бөлек тексерілуі керек.',
+    source: 'Ашық деректер (мекенжай)',
     verified: false,
   },
   {
     id: 'mosque',
     name: 'Ауыл мешіті',
     category: 'history',
-    description: 'Белқарағай ауылындағы мешіт: ақ мұнаралы, көгілдір күмбезді ғимарат. Ресми атауы, салынған жылы және координаты нақтылануда.',
-    historicalSignificance: PENDING,
+    description: 'Белқарағай ауылындағы мешіт: ақ мұнаралы, көгілдір күмбезді ғимарат.',
+    historicalSignificance: '',
     latitude: null,
     longitude: null,
     image: '/images/places/mosque.jpg',
     imageCredit: 'Видеодан алынған кадр',
     source: 'Жоба авторының жергілікті мәліметі',
-    verified: false,
-  },
-  {
-    id: 'terisbulaq',
-    name: 'Терісбұлақ өзені маңы',
-    category: 'history',
-    description: 'Тарихи-географиялық орын. Нақты туристік нүктесі мен координаты нақтылануда.',
-    historicalSignificance: PENDING,
-    latitude: null,
-    longitude: null,
-    image: null,
-    source: null,
-    verified: false,
-  },
-  {
-    id: 'local-nature',
-    name: 'Жергілікті табиғи көріністер',
-    category: 'nature',
-    description:
-      'Ауыл айналасындағы табиғи ландшафттар. Атауы, фотосы, қауіпсіз жолы және координаты жергілікті зерттеу арқылы анықталады.',
-    historicalSignificance: PENDING,
-    latitude: null,
-    longitude: null,
-    image: null,
-    source: null,
-    verified: false,
-  },
-  {
-    id: 'eco-point',
-    name: 'Экологиялық бақылау нүктесі',
-    category: 'eco',
-    description:
-      'Экомониторинг нүктесі. Оқушы зерттеу жүргізгеннен кейін ғана нақты орын ретінде белгіленеді.',
-    historicalSignificance: PENDING,
-    latitude: null,
-    longitude: null,
-    image: null,
-    source: null,
     verified: false,
   },
 ];

@@ -1,15 +1,13 @@
-import { BadgeCheck, CircleDashed } from 'lucide-react';
+import { BadgeCheck } from 'lucide-react';
 import { CATEGORY_BY_ID } from '../../data/categories';
 import type { CategoryId } from '../../types';
 
 export function VerifiedBadge({ verified }: { verified: boolean }) {
-  return verified ? (
+  // Тексерілмеген нысанда белгі көрсетілмейді
+  if (!verified) return null;
+  return (
     <span className="inline-flex items-center gap-1 rounded-full bg-forest-100 px-2.5 py-1 text-[0.7rem] font-bold text-forest-800">
       <BadgeCheck className="h-3.5 w-3.5" /> Тексерілген
-    </span>
-  ) : (
-    <span className="inline-flex items-center gap-1 rounded-full bg-cream-200 px-2.5 py-1 text-[0.7rem] font-bold text-brown-700">
-      <CircleDashed className="h-3.5 w-3.5" /> Нақтылануда
     </span>
   );
 }

@@ -4,7 +4,7 @@ import { ArrowRight, Clock, Gauge, Info, MapPinned, Ruler } from 'lucide-react';
 import { routes } from '../data/routes';
 import { hasCoords, useAllPlaces } from '../lib/store';
 import PageHeader from '../components/ui/PageHeader';
-import { CategoryBadge, Pending, VerifiedBadge } from '../components/ui/Badges';
+import { CategoryBadge, VerifiedBadge } from '../components/ui/Badges';
 import { MapLoading, OfflineNotice, useTileStatus } from '../components/map/MapExplorer';
 import NotFoundPage from './NotFoundPage';
 import type { Place } from '../types';
@@ -28,7 +28,7 @@ export default function RoutePage() {
     { icon: Clock, label: 'Шамамен жүру уақыты', value: route.duration },
     { icon: Gauge, label: 'Күрделілік деңгейі', value: route.difficulty },
     { icon: MapPinned, label: 'Нүктелер саны', value: String(route.placeIds.length) },
-  ];
+  ].filter((s) => s.value);
 
   return (
     <>
@@ -40,7 +40,7 @@ export default function RoutePage() {
                 <Icon className="h-3.5 w-3.5" /> {label}
               </dt>
               <dd className="mt-1 font-bold text-white [&_span]:text-gold-200">
-                <Pending value={value} />
+                {value}
               </dd>
             </div>
           ))}

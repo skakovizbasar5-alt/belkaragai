@@ -33,16 +33,17 @@ export default function PlaceCard({ place, active, onShow }: Props) {
       </div>
       <p className="mt-2 line-clamp-2 text-sm text-forest-900/65">{place.description}</p>
       <div className="mt-3 flex flex-wrap items-center gap-2">
+        {mappable && (
         <button
           type="button"
           onClick={() => onShow(place.id)}
-          disabled={!mappable}
-          title={mappable ? 'Картадан көрсету' : 'Координаты әлі расталмаған'}
+          title="Картадан көрсету"
           className="inline-flex items-center gap-1.5 rounded-full bg-forest-800 px-3.5 py-2 text-xs font-bold text-white transition hover:bg-forest-700 disabled:bg-forest-900/15 disabled:text-forest-900/50"
         >
           <Crosshair className="h-3.5 w-3.5" />
-          {mappable ? 'Картадан көрсету' : 'Координат нақтылануда'}
+          Картадан көрсету
         </button>
+        )}
         <Link
           to={`/place/${place.id}`}
           className="inline-flex items-center gap-1.5 rounded-full border border-forest-900/15 px-3.5 py-2 text-xs font-bold text-forest-800 hover:bg-forest-50"

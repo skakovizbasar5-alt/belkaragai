@@ -14,6 +14,9 @@ const ICONS: Record<ServiceKind, LucideIcon> = {
 
 export default function LocalSection() {
   const ref = useReveal<HTMLDivElement>();
+  // Расталған жазба жоқ болса — бөлім сайтта көрсетілмейді
+  const filled = services.filter((s) => s.entries.length > 0);
+  if (filled.length === 0) return null;
   return (
     <section id="local" className="py-20 sm:py-28">
       <div className="container-page">
@@ -24,10 +27,10 @@ export default function LocalSection() {
               Жергілікті мүмкіндіктерді <span className="text-brown-600 italic">бірге ашайық</span>
             </>
           }
-          lead="Туристерге қажетті жергілікті қызметтер. Деректер тек иелерінің келісімімен және расталғаннан кейін енгізіледі — әзірге толтыруға арналған үлгілер көрсетілген."
+          lead="Туристерге қажетті жергілікті қызметтер. Деректер тек иелерінің келісімімен және расталғаннан кейін енгізіледі."
         />
         <div ref={ref} className="reveal mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-          {services.map((s) => {
+          {filled.map((s) => {
             const Icon = ICONS[s.kind];
             return (
               <article key={s.id} className="card flex flex-col p-6">

@@ -34,10 +34,14 @@ export default function PlacePage() {
           <section className="card p-6 sm:p-8">
             <h2 className="text-2xl font-semibold text-forest-900">Сипаттама</h2>
             <p className="mt-3 leading-relaxed text-forest-900/75">{place.description}</p>
-            <h2 className="mt-8 flex items-center gap-2 text-2xl font-semibold text-forest-900">
-              <Sparkles className="h-5 w-5 text-gold-500" /> Тарихи немесе табиғи маңызы
-            </h2>
-            <p className="mt-3 leading-relaxed text-forest-900/75">{place.historicalSignificance}</p>
+            {place.historicalSignificance && (
+              <>
+                <h2 className="mt-8 flex items-center gap-2 text-2xl font-semibold text-forest-900">
+                  <Sparkles className="h-5 w-5 text-gold-500" /> Тарихи немесе табиғи маңызы
+                </h2>
+                <p className="mt-3 leading-relaxed text-forest-900/75">{place.historicalSignificance}</p>
+              </>
+            )}
           </section>
           {place.custom && (
             <p className="flex items-start gap-2 rounded-2xl bg-gold-100 p-4 text-sm text-brown-800">
@@ -52,29 +56,22 @@ export default function PlacePage() {
           <section className="card p-6">
             <h2 className="font-sans text-sm font-bold tracking-wider text-forest-900/50 uppercase">Мәліметтер</h2>
             <dl className="mt-4 space-y-4 text-sm">
-              <div>
-                <dt className="flex items-center gap-1.5 font-semibold text-forest-900">
-                  <MapPin className="h-4 w-4 text-forest-600" /> Координаттары
-                </dt>
-                <dd className="mt-1 text-forest-900/70">
-                  {coords ? (
-                    <>
-                      {coords}
-                      {!place.verified && <span className="ml-1 text-brown-600">(тексерілмеген)</span>}
-                    </>
-                  ) : (
-                    <span className="text-brown-600 italic">Мәлімет нақтылануда</span>
-                  )}
-                </dd>
-              </div>
-              <div>
-                <dt className="flex items-center gap-1.5 font-semibold text-forest-900">
-                  <BookOpen className="h-4 w-4 text-forest-600" /> Дереккөз
-                </dt>
-                <dd className="mt-1 break-words text-forest-900/70">
-                  {place.source ?? <span className="text-brown-600 italic">Дереккөз нақтылануда</span>}
-                </dd>
-              </div>
+              {coords && (
+                <div>
+                  <dt className="flex items-center gap-1.5 font-semibold text-forest-900">
+                    <MapPin className="h-4 w-4 text-forest-600" /> Координаттары
+                  </dt>
+                  <dd className="mt-1 text-forest-900/70">{coords}</dd>
+                </div>
+              )}
+              {place.source && (
+                <div>
+                  <dt className="flex items-center gap-1.5 font-semibold text-forest-900">
+                    <BookOpen className="h-4 w-4 text-forest-600" /> Дереккөз
+                  </dt>
+                  <dd className="mt-1 break-words text-forest-900/70">{place.source}</dd>
+                </div>
+              )}
             </dl>
             <Link to={`/qr?place=${encodeURIComponent(place.id)}`} className="btn-forest mt-6 w-full">
               <QrCode className="h-4 w-4" /> Осы нысанның QR-коды

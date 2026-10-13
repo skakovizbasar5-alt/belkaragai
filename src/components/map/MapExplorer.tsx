@@ -78,6 +78,8 @@ export default function MapExplorer() {
 
   const mappedCount = filtered.filter(hasCoords).length;
   const anyCoords = places.some(hasCoords);
+  // Сүзгі мен аңызда тек нысаны бар санаттар көрсетіледі
+  const presentCategories = useMemo(() => CATEGORIES.filter((c) => places.some((p) => p.category === c.id)), [places]);
 
   // Сүзгі өзгергенде таңдалған нысан тізімнен шығып кетсе — таңдауды алып тастау
   useEffect(() => {
@@ -132,7 +134,7 @@ export default function MapExplorer() {
             >
               Барлығы
             </button>
-            {CATEGORIES.map((c) => {
+            {presentCategories.map((c) => {
               const on = active.has(c.id);
               const Icon = c.icon;
               return (
@@ -215,14 +217,11 @@ export default function MapExplorer() {
 
       {/* Аңыз (легенда) */}
       <div className="flex flex-wrap gap-x-5 gap-y-2 border-t border-forest-900/10 px-5 py-3 text-xs text-forest-900/70">
-        {CATEGORIES.map((c) => (
+        {presentCategories.map((c) => (
           <span key={c.id} className="inline-flex items-center gap-1.5">
             <span className="h-3 w-3 rounded-full" style={{ backgroundColor: c.color }} /> {c.label}
           </span>
         ))}
-        <span className="inline-flex items-center gap-1.5">
-          <span className="h-3 w-3 rounded-full border-2 border-dashed border-white bg-[#8a8f8b] ring-1 ring-[#8a8f8b]" /> Тексерілмеген нүкте
-        </span>
       </div>
     </div>
   );

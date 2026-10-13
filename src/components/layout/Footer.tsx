@@ -50,11 +50,6 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="/#local" className="hover:text-white">
-                Жергілікті әлеует
-              </Link>
-            </li>
-            <li>
               <Link to="/#results" className="hover:text-white">
                 Жоба нәтижелері
               </Link>

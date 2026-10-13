@@ -192,10 +192,10 @@ QR-код **тек интернетте жұмыс істейтін жария �
 
 ### GitHub Pages
 Репозиторийде `.github/workflows/deploy.yml` бар: `main` тармағына әр push жасалғанда сайт автоматты түрде жиналып,
-`https://<пайдаланушы>.github.io/ecotour-belqaragai/` мекенжайына жарияланады.
+`https://<пайдаланушы>.github.io/belkaragai/` мекенжайына жарияланады.
 Бір рет баптау: репозиторий → **Settings → Pages → Source: GitHub Actions**.
 Репозиторий атауын өзгертсеңіз, `vite.config.ts` ішіндегі `PAGES_BASE` мәнін де өзгертіңіз.
-GitHub Pages-те QR-гид мекенжайды өзі анықтайды (`…github.io/ecotour-belqaragai`).
+GitHub Pages-те QR-гид мекенжайды өзі анықтайды (`…github.io/belkaragai`).
 
 Тұрақты мекенжайды QR үшін бекіту: `.env.example` файлын `.env` деп көшіріп, ішіне жазыңыз:
 

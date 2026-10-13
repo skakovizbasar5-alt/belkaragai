@@ -51,6 +51,8 @@ export interface HistoryEntry {
   text: string;
   /** Дереккөз: кітап атауы, авторы, беті. Жоқ болса — null. */
   source: string | null;
+  /** Ескерту: мысалы, аңыз бен дәлелденген деректі ажырату үшін */
+  note?: string;
   tags: string[];
 }
 

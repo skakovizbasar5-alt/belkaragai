@@ -3,7 +3,7 @@ import type { TourRoute } from '../types';
 /**
  * ТУРИСТІК МАРШРУТТАР
  * ------------------------------------------------------------
- * distance, duration, difficulty — тек расталған деректер болғанда толтырылады.
+ * distance, duration, difficulty — тек нақты жол арқылы өлшенгеннен кейін толтырылады.
  * Әйтпесе null қалдырыңыз — сайтта «Нақтылау қажет» деп шығады.
  *
  * placeIds — places.ts ішіндегі нысандардың id мәндері (маршрут реті бойынша).
@@ -14,26 +14,26 @@ export const routes: TourRoute[] = [
   {
     id: 'nature-trip',
     name: 'Табиғатқа саяхат',
-    tagline: 'Табиғи көріністер мен демалыс орындары',
+    tagline: 'Ауыл айналасындағы табиғи ландшафттар',
     description:
-      'Белқарағай өңірінің табиғи көріністерін тамашалап, демалыс орындарында аялдауға арналған бағыт. Таза ауа, орман тынысы және тау бөктерінің көрінісі.',
+      'Мақсаты — Белқарағай ауылының айналасындағы табиғи ландшафттарды таныстыру. Нысандар жергілікті табиғи орындар анықталғаннан кейін енгізіледі.',
     distance: null,
     duration: null,
     difficulty: null,
-    placeIds: ['sample-nature', 'sample-recreation', 'sample-route'],
+    placeIds: ['belqaragai-village', 'local-nature'],
     image: '/images/route-nature.jpg',
     verifiedPath: null,
   },
   {
     id: 'history-trail',
     name: 'Тарих ізімен',
-    tagline: 'Ауылдың тарихи жадымен танысу',
+    tagline: 'Медведкадан Белқарағайға дейін',
     description:
-      'Ауылдың тарихы мен тарихи орындарын тануға арналған бағыт. Әр аялдамада дереккөзге сүйенген қысқа әңгіме мен QR-гид ұсынылады.',
+      'Мақсаты — ауылдың атау тарихын, тарихи орындарын және өлкетану деректерін таныстыру. Қашықтығы мен уақыты нысандар белгіленген соң есептеледі.',
     distance: null,
     duration: null,
     difficulty: null,
-    placeIds: ['belqaragai-village', 'sample-history'],
+    placeIds: ['belqaragai-village', 'oralhan-bokey-school', 'terisbulaq', 'tonqayin'],
     image: '/images/route-history.jpg',
     verifiedPath: null,
   },
@@ -42,11 +42,11 @@ export const routes: TourRoute[] = [
     name: 'Эко-саяхат',
     tagline: 'Бақыла. Біл. Сақта.',
     description:
-      'Табиғатты бақылау және экологиялық жауапкершілікті насихаттау бағыты. Саяхат барысында байқалған мәселені «Экомониторинг» формасы арқылы белгілеуге болады.',
+      'Мақсаты — табиғатты бақылау, қоқыс мәселелерін тіркеу және экологиялық жауапкершілікті қалыптастыру. Маршрут тексерілген жолдар мен қауіпсіз орындар негізінде құрылады.',
     distance: null,
     duration: null,
     difficulty: null,
-    placeIds: ['sample-nature', 'sample-eco'],
+    placeIds: ['local-nature', 'eco-point'],
     image: '/images/route-eco.jpg',
     verifiedPath: null,
   },

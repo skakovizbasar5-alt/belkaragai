@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BookOpen, FilePenLine, Quote } from 'lucide-react';
+import { BookOpen, FilePenLine, Info, Quote } from 'lucide-react';
 import { BOOK_SOURCE, history } from '../../data/history';
 import SectionHeading from '../ui/SectionHeading';
 import { useReveal } from '../../lib/useReveal';
@@ -31,8 +31,8 @@ export default function HistorySection() {
           }
           lead={
             <>
-              Уақыт шкаласындағы кезеңді таңдаңыз. Материалдар {BOOK_SOURCE} үзінділері және басқа дереккөздер негізінде
-              толықтырылады. Дереккөзсіз мәлімет факт ретінде көрсетілмейді.
+              1862 жылдан бүгінге дейін — Медведкадан Белқарағайға. Кезеңді таңдаңыз. Материалдар {BOOK_SOURCE} (210–211-беттер)
+              негізінде қысқаша мазмұндалған; әр мәліметтің дереккөзі көрсетілген.
             </>
           }
         />
@@ -103,6 +103,12 @@ export default function HistorySection() {
                         (<code className="rounded bg-white/10 px-1 text-sm">src/data/history.ts</code>).
                       </p>
                     </div>
+                  )}
+                  {active.note && (
+                    <p className="mt-5 flex items-start gap-2 rounded-xl bg-gold-300/10 px-4 py-3 text-sm text-gold-100">
+                      <Info className="mt-0.5 h-4 w-4 shrink-0 text-gold-300" />
+                      {active.note}
+                    </p>
                   )}
                   {active.tags.length > 0 && (
                     <div className="mt-6 flex flex-wrap gap-2">

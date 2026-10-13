@@ -99,7 +99,7 @@ export default function Hero() {
           </p>
           <Link
             to="/#about"
-            className="flex flex-col items-center gap-1 text-[0.65rem] font-bold tracking-[0.2em] text-white/80 uppercase hover:text-white"
+            className="hidden flex-col items-center gap-1 text-[0.65rem] font-bold tracking-[0.2em] text-white/80 uppercase hover:text-white sm:flex sm:mr-44"
             aria-label="Төмен жылжу"
           >
             <span className="hidden sm:block">Төмен</span>

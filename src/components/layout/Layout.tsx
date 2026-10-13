@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import MusicToggle from './MusicToggle';
+import { SITE } from '../../data/site';
 
 /** Бет ауысқанда немесе #бөлім сілтемесі басылғанда дұрыс жерге айналдыру */
 function ScrollManager() {
@@ -42,6 +44,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      {SITE.backgroundMusic && <MusicToggle />}
     </div>
   );
 }

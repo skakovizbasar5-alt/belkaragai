@@ -137,7 +137,25 @@
   animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
+/* Әуен батырмасындағы эквалайзер */
+@keyframes music-bar {
+  0%,
+  100% {
+    height: 30%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+.music-bar {
+  height: 60%;
+  animation: music-bar 0.9s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .music-bar {
+    animation: none;
+  }
   html {
     scroll-behavior: auto;
   }

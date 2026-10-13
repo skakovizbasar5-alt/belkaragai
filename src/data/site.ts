@@ -13,6 +13,8 @@ export const SITE = {
   slogan: 'Табиғатты таны. Тарихты сақта. Болашаққа жол аш!',
   heroVideo: '/videos/belqaragai-intro.mp4',
   heroPoster: '/images/hero-poster.jpg',
+  /** Фондық әуен (public/audio/). Өшіру үшін файлды алып тастаңыз немесе '' деп жазыңыз. */
+  backgroundMusic: '/audio/background.mp3',
   /**
    * Сайттың интернеттегі нақты мекенжайы. QR-кодтар осы мекенжайға жасалады.
    * .env файлында VITE_SITE_URL арқылы беріледі (README қараңыз).

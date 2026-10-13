@@ -13,6 +13,8 @@ export interface Place {
   longitude: number | null;
   /** /public ішіндегі сурет жолы, мысалы "/images/places/orman.jpg". Жоқ болса — null. */
   image: string | null;
+  /** Сурет астындағы белгі, мысалы "Фото: жоба авторы" немесе "Иллюстрация" */
+  imageCredit?: string;
   /** Дереккөз: кітап, мақала, сілтеме немесе куәгер. Жоқ болса — null. */
   source: string | null;
   /** Координаттар мен деректер тексерілгенде ғана true қойыңыз. */

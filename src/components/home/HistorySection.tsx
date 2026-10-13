@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BookOpen, FilePenLine, Info, Quote } from 'lucide-react';
-import { BOOK_SOURCE, history } from '../../data/history';
+import { BOOK, BOOK_SOURCE, history } from '../../data/history';
+import { asset } from '../../lib/asset';
 import SectionHeading from '../ui/SectionHeading';
 import { useReveal } from '../../lib/useReveal';
 import type { HistoryEntry } from '../../types';
@@ -134,6 +135,44 @@ export default function HistorySection() {
                   </p>
                 </aside>
               </article>
+
+              {/* Негізгі дереккөз — кітап */}
+              <aside className="mt-6 flex flex-col gap-5 rounded-[2rem] border border-white/10 bg-forest-950/40 p-5 sm:flex-row sm:items-center sm:p-6">
+                <img
+                  src={asset(BOOK.cover)}
+                  alt={`«${BOOK.title}» кітабының мұқабасы`}
+                  loading="lazy"
+                  className="h-40 w-32 shrink-0 rounded-xl object-cover shadow-lg shadow-black/40"
+                />
+                <div>
+                  <p className="flex items-center gap-2 text-xs font-bold tracking-wider text-gold-300 uppercase">
+                    <BookOpen className="h-4 w-4" /> Негізгі дереккөз
+                  </p>
+                  <p className="mt-2 font-display text-2xl font-semibold">«{BOOK.title}»</p>
+                  <p className="mt-1 text-sm text-white/70">{BOOK.subtitle}</p>
+                  <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1 text-sm sm:grid-cols-4">
+                    <div>
+                      <dt className="text-white/45">Құрастырған</dt>
+                      <dd className="text-white/90">{BOOK.compiler}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-white/45">Баспасы</dt>
+                      <dd className="text-white/90">
+                        {BOOK.publisher}, {BOOK.city}, {BOOK.year}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-white/45">Көлемі</dt>
+                      <dd className="text-white/90">{BOOK.pages} бет</dd>
+                    </div>
+                    <div>
+                      <dt className="text-white/45">Пайдаланылған беттер</dt>
+                      <dd className="text-white/90">{BOOK.usedPages}</dd>
+                    </div>
+                  </dl>
+                  <p className="mt-2 text-xs text-white/40">ISBN {BOOK.isbn}</p>
+                </div>
+              </aside>
             </>
           )}
         </div>

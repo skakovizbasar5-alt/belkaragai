@@ -33,7 +33,7 @@ export const routes: TourRoute[] = [
     distance: null,
     duration: null,
     difficulty: null,
-    placeIds: ['belqaragai-village', 'oralhan-bokey-school', 'terisbulaq', 'tonqayin'],
+    placeIds: ['belqaragai-village', 'oralhan-bokey-school', 'mosque', 'terisbulaq', 'tonqayin'],
     image: '/images/route-history.jpg',
     verifiedPath: null,
   },

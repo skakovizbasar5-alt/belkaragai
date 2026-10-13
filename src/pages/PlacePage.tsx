@@ -30,7 +30,7 @@ export default function PlacePage() {
 
       <div className="container-page grid gap-8 py-10 lg:grid-cols-[1.4fr_1fr] lg:py-14">
         <div className="space-y-6">
-          <ImageSlot src={place.image} alt={place.name} className="aspect-[16/9] rounded-3xl" caption={place.image ? 'Иллюстрация' : undefined} />
+          <ImageSlot src={place.image} alt={place.name} className="aspect-[16/9] rounded-3xl" caption={place.image ? place.imageCredit : undefined} />
           <section className="card p-6 sm:p-8">
             <h2 className="text-2xl font-semibold text-forest-900">Сипаттама</h2>
             <p className="mt-3 leading-relaxed text-forest-900/75">{place.description}</p>

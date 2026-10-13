@@ -1,0 +1,235 @@
+@import 'tailwindcss';
+
+/* ===== Бренд түстері мен қаріптер ===== */
+@theme {
+  --color-forest-50: #eef4ef;
+  --color-forest-100: #dbe8de;
+  --color-forest-200: #b5cfbb;
+  --color-forest-300: #87b093;
+  --color-forest-500: #3d7a52;
+  --color-forest-600: #2f6b45;
+  --color-forest-700: #275838;
+  --color-forest-800: #1f3d2b;
+  --color-forest-900: #142a1d;
+  --color-forest-950: #0c1a12;
+
+  --color-cream-50: #fcfaf5;
+  --color-cream-100: #f6f1e7;
+  --color-cream-200: #ece3d1;
+  --color-cream-300: #ddd0b6;
+
+  --color-brown-400: #b08a63;
+  --color-brown-500: #9a714a;
+  --color-brown-600: #7a5535;
+  --color-brown-700: #5f4129;
+  --color-brown-800: #4a3220;
+
+  --color-gold-100: #f6ecd2;
+  --color-gold-200: #ecd9a6;
+  --color-gold-300: #e2c275;
+  --color-gold-400: #d4ab52;
+  --color-gold-500: #c9a24a;
+  --color-gold-600: #a9842f;
+
+  --font-display: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Onest', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-cream-100 text-forest-950 font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-gold-400);
+    outline-offset: 2px;
+  }
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* ===== Қайта қолданылатын стильдер ===== */
+@utility container-page {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-gold {
+  @apply btn bg-gold-400 text-forest-950 shadow-lg shadow-black/10 hover:bg-gold-300;
+}
+@utility btn-forest {
+  @apply btn bg-forest-800 text-cream-50 hover:bg-forest-700;
+}
+@utility btn-ghost-light {
+  @apply btn border border-white/50 bg-white/10 text-white backdrop-blur hover:bg-white/20;
+}
+@utility btn-outline {
+  @apply btn border border-forest-800/20 bg-white text-forest-800 hover:border-forest-800/40 hover:bg-forest-50;
+}
+@utility card {
+  @apply rounded-3xl border border-forest-900/8 bg-white shadow-[0_1px_2px_rgba(20,42,29,.05),0_12px_32px_-16px_rgba(20,42,29,.18)];
+}
+@utility eyebrow {
+  @apply inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] text-brown-600 uppercase;
+}
+@utility input {
+  @apply w-full rounded-xl border border-forest-900/15 bg-white px-4 py-3 text-sm text-forest-950 placeholder:text-forest-900/40 focus:border-forest-600 focus:ring-2 focus:ring-forest-600/20 focus:outline-none;
+}
+@utility label {
+  @apply mb-1.5 block text-sm font-semibold text-forest-900;
+}
+@utility chip {
+  @apply inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3.5 py-2 text-xs font-semibold transition;
+}
+
+/* ===== Жұмсақ пайда болу анимациясы ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+.animate-scroll-cue {
+  animation: scroll-cue 2s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-scroll-cue,
+  .animate-fade-up {
+    animation: none;
+  }
+}
+
+/* ===== Leaflet картасының белгілері ===== */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: var(--color-forest-100);
+}
+.eco-marker {
+  background: transparent;
+  border: none;
+}
+.eco-marker__pin {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50% 50% 50% 4px;
+  transform: rotate(-45deg);
+  border: 3px solid #fff;
+  box-shadow: 0 6px 14px rgba(12, 26, 18, 0.35);
+  transition: transform 0.2s ease;
+}
+.eco-marker__pin > svg {
+  transform: rotate(45deg);
+  color: #fff;
+}
+.eco-marker--active .eco-marker__pin {
+  transform: rotate(-45deg) scale(1.22);
+  box-shadow:
+    0 0 0 5px rgba(226, 194, 117, 0.65),
+    0 8px 18px rgba(12, 26, 18, 0.4);
+}
+.eco-marker--unverified .eco-marker__pin {
+  background: #8a8f8b !important;
+  border-style: dashed;
+}
+.eco-marker--pick .eco-marker__pin {
+  background: var(--color-gold-500);
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 18px;
+  padding: 0;
+  overflow: hidden;
+}
+.leaflet-popup-content {
+  margin: 0;
+  width: 280px !important;
+  max-width: 78vw;
+}
+.leaflet-container a.leaflet-popup-close-button {
+  color: #fff;
+  top: 6px;
+  right: 6px;
+  width: 26px;
+  height: 26px;
+  font-size: 20px;
+  background: rgba(12, 26, 18, 0.45);
+  border-radius: 999px;
+}
+.leaflet-control-zoom a {
+  width: 38px !important;
+  height: 38px !important;
+  line-height: 38px !important;
+}
+
+/* ===== Басып шығару (QR-карточка) ===== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #print-card,
+  #print-card * {
+    visibility: visible;
+  }
+  #print-card {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    box-shadow: none !important;
+    border: 1px solid #ccc;
+  }
+}
